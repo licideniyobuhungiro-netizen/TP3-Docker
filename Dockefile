@@ -1,0 +1,16 @@
+# Utiliser une image Python légère
+FROM python:3.10
+
+# Définir le dossier de travail dans le conteneur
+WORKDIR /app
+
+# Copier le fichier actuel dans le conteneur
+COPY requirements.txt .
+
+# Installer les dépendances
+RUN pip install -r requirements.txt
+
+COPY ..
+
+# Lancer l'application
+CMD ["python", "-m","pytest","tests/"]
